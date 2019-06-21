@@ -13,7 +13,7 @@ def index(request):
 def detail(request, album_id):
     try:
         album = Album.objects.get(pk=album_id)
-        review = Review.objects.all()
+        review = Review.RATING_CHOICES
     except Album.DoesNotExsist:
             raise Http404("Album does not exsist")
     return render(request, 'music/detail.html', {'album': album}, {'review': review} )

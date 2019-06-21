@@ -17,10 +17,18 @@
          
     </head> 
   
+    <style>
+    body { background-color: #ffffe6; }   
+   
+    </style>
+    
+    <body>
 
-<img src="http://www.highergroundlandscapes.co.nz/Images/outdoor_pizza_oven.jpg" style="width:825px;height:200px;">
+<div class="container-fluid">        
+        
+<img class="img-fluid" src="http://www.highergroundlandscapes.co.nz/Images/outdoor_pizza_oven.jpg" style="width:825px;height:200px;" class="mx-auto d-block">
 
-<h1>{{ album.album_title }}</h1>
+<h1 align="center" style="font-family:Garamond">{{ album.album_title }}</h1>
 <h3>{{ album.artist }}</h3>
 
 <ul>
@@ -28,12 +36,12 @@
     <li>{{ song.song_title }} - {{ song.file_type }}</li>
     {% endfor %}
 </ul>
-
-
-<h2> Food Review: </h2>
-
+    
+<br/>
+<h3>Add Review:</h3>
+    
 <ul>
-  {% for Review in Review.rating.all %}
+  {% for Review in review %}
     <li>
       <p>{{ Review.rating }} star{{ Review.rating|pluralize }}</p>
       <p>{{ Review.comment }}</p>
@@ -41,14 +49,15 @@
     </li>
   {% endfor %}
 </ul>
-
-<h3>Add Review</h3>
     
 <br/>
  <button class="btn btn-primary" disabled>
   <span class="spinner-border spinner-border-sm"></span>
   Loading..
 </button>
+        </div>
+    
+    </body>
 
 </html>
 
