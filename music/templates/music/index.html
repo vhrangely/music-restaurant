@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% if all_albums %}
+
+ <body>   
+<div class="container">
+<img class="img-fluid" src="https://www.westportplayhouse.org/portals/0/Users/174/74/174/restuarnats.jpg" alt="Chania" style="width:825px;height:200px;">
+
+    </div>
+</body>
+    <body>
+
+<div class="container-fluid">
+  <h1>Local Restaurants</h1>
+  <p></p>
+  <div class="row">
+    <div class="col" style="background-color:lavender;">{% for album in all_albums %}
+    <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
+    {% endfor %}</div>
+  </div>
+</div>
+</body>
+<br/>
+<div class="alert alert-success">
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p>Click to <button type="button" class="btn btn-primary active"><a href="{% url 'logout' %}">Logout</a></button></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% else %}
+<h3> You dont have any albums </h3>
+
+{% endif %}
+    <br/>
+</div>
+</html>
+
