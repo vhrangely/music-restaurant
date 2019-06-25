@@ -38,7 +38,7 @@ class Review(models.Model):
     date = models.DateField(default=date.today)
     
     def __str__(self):
-        return self.rating + ' - ' + self.user
+        return self.comment
     
 class Food(Review):
     customers = models.ManyToManyField(Customer)

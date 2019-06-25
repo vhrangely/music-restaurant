@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+     <head>
+  <Title>Local Restaurants</Title>
+         
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+         
+    </head> 
+  
+ <body>      
+     
+<div class="container">
+    
+<img class="img-fluid" src="https://www.westportplayhouse.org/portals/0/Users/174/74/174/restuarnats.jpg" alt="Chania">
+
+    </div>
+
+
+<div class="container-fluid">
+    
+    <h1> Local Restaurants </h1>
+    {% if all_albums %}
+  <div class="row">
+    <div class="col" style="background-color:lavender;">{% for album in all_albums %}
+    <li><a href="/music/{{ album.id }}/">{{ album.album_title }}</a></li>
+    {% endfor %}</div>
+      
+  </div>
+    {% else %}
+    
+<h3> You dont have any albums </h3>
+    
+    {% endif %}
+    
+</div>
+        
+<br/>
+<div class="alert alert-success">
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p>Click to <button type="button" class="btn btn-primary active"><a href="{% url 'logout' %}">Logout</a></button></p>
+    
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+    
+{% endif %}
+    <br/>
+    
+</div>
+     
+     </body>
+    
+</html>

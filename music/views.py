@@ -22,16 +22,7 @@ def register(request):
     form = UserCreationForm()
     return render(request, 'users/register.html', {'form': form})
 
-######################
-##class DishCreate(CreateView):
-    template_name = 'music/detail.html'
-                                              
-    #def review(request):
-    restaurant = get(Album, pk=pk)
-    review = Food(
-    rating=request.POST['rating'],
-    comment=request.POST['comment'],
-    user=request.user,
-    restaurant=restaurant)
-    review.save()
-    return HttpResponseRedirect(reverse('music:detail', args=(restaurant.id,)))
+def review(request):
+    comment = Review.objects.all()
+    return render(request, 'music/detail.html', {'comment': comment})
+

@@ -26,8 +26,10 @@
 
 <div class="container-fluid">        
         
-<img class="img-fluid" src="http://www.highergroundlandscapes.co.nz/Images/outdoor_pizza_oven.jpg" style="width:825px;height:200px;" class="mx-auto d-block">
-
+<img src="http://www.highergroundlandscapes.co.nz/Images/outdoor_pizza_oven.jpg" style="width:90%" class="mx-auto d-block" >
+</div>
+        
+<div>
 <h1 align="center" style="font-family:Garamond">{{ album.album_title }}</h1>
 <h3>{{ album.artist }}</h3>
 
@@ -36,28 +38,25 @@
     <li>{{ song.song_title }} - {{ song.file_type }}</li>
     {% endfor %}
 </ul>
+    <br>    
+    <h3> Add Review: </h3> 
     
-<br/>
-<h3>Add Review:</h3>
+<form action="/post.html" target="_blank" method="post">
+  <textarea from="1" name="message" rows="5" cols="100">
+My thoughts on the meal were...
+</textarea>
+    <br>
+<button type="button" >Submit</button>
+</form>
     
-<ul>
-  {% for Review in review %}
-    <li>
-      <p>{{ Review.rating }} star{{ Review.rating|pluralize }}</p>
-      <p>{{ Review.comment }}</p>
-      <p>Created by {{ review.user }} on {{ review.date }}</p>
-    </li>
-  {% endfor %}
-</ul>
-    
-<br/>
- <button class="btn btn-primary" disabled>
-  <span class="spinner-border spinner-border-sm"></span>
-  Loading..
-</button>
-        </div>
-    
-    </body>
+   <h3>{{ review.comment }}</h3> 
 
+        </div>
+    </body>
 </html>
+
+
+
+
+
 
